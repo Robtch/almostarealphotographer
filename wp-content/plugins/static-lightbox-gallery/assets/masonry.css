@@ -1,0 +1,36 @@
+/* Turns a native WordPress Gallery block into a masonry layout.
+   !important is used deliberately here: core Gutenberg sets
+   `display: grid` inline/via its own stylesheet on this element,
+   which silently disables column-count unless we override it. */
+
+.wp-block-gallery.masonry-gallery {
+	display: block !important;
+	column-count: 3;
+	column-gap: 12px;
+}
+
+.wp-block-gallery.masonry-gallery .wp-block-image,
+.wp-block-gallery.masonry-gallery .blocks-gallery-item {
+	break-inside: avoid;
+	width: 100% !important;
+	margin: 0 0 12px !important;
+}
+
+.wp-block-gallery.masonry-gallery img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+@media (max-width: 900px) {
+	.wp-block-gallery.masonry-gallery {
+		column-count: 2;
+	}
+}
+
+@media (max-width: 520px) {
+	.wp-block-gallery.masonry-gallery {
+		column-count: 2;
+		column-gap: 8px;
+	}
+}

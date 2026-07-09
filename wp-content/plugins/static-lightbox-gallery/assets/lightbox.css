@@ -1,0 +1,95 @@
+/* Minimal lightbox styling. No animation libraries, just a quick fade. */
+
+.lightbox-overlay {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.9);
+	z-index: 9999;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.lightbox-overlay.is-open {
+	display: flex;
+	opacity: 1;
+}
+
+.lightbox-lock-scroll {
+	overflow: hidden;
+}
+
+.lightbox-figure {
+	margin: 0;
+	max-width: 92vw;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.lightbox-image {
+	max-width: 92vw;
+	max-height: 82vh;
+	display: block;
+	object-fit: contain;
+}
+
+.lightbox-caption {
+	color: #eee;
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	margin-top: 12px;
+	text-align: center;
+}
+
+.lightbox-counter {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #ccc;
+	font-size: 12px;
+	letter-spacing: 0.08em;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+	position: absolute;
+	background: none;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 1;
+	padding: 8px;
+}
+
+.lightbox-close {
+	top: 16px;
+	right: 20px;
+	font-size: 32px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 44px;
+}
+
+.lightbox-prev {
+	left: 12px;
+}
+
+.lightbox-next {
+	right: 12px;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+	color: #c9a366;
+}
