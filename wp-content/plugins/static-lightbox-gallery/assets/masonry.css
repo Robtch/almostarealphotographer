@@ -7,6 +7,7 @@
 	display: block !important;
 	column-count: 3;
 	column-gap: 12px;
+	column-fill: auto;
 }
 
 .wp-block-gallery.masonry-gallery .wp-block-image,
