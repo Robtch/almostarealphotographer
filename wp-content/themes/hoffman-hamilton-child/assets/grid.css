@@ -3,6 +3,12 @@
 
 .hhc-home-description {
 	margin: 0 0 1em;
+	text-align: center;
+}
+
+.archive-header {
+	text-align: center !important;
+	margin-bottom: 2.5em !important;
 }
 
 .hhc-grid {
@@ -60,6 +66,7 @@
 }
 
 .hhc-grid-title {
+	margin: 0;
 	position: absolute;
 	inset: 0;
 	display: flex;
@@ -86,15 +93,8 @@ body.hhc-show-titles .hhc-grid-title {
 	opacity: 1;
 }
 
-/* On touch devices there's no hover, so keep titles visible so mobile
-   visitors (which you said is most of your traffic) can still tell
-   posts apart without needing to tap first. */
-@media (hover: none) {
-	.hhc-grid-item::after {
-		background: rgba(0, 0, 0, 0.45);
-	}
-
-	.hhc-grid-title {
-		opacity: 1;
-	}
-}
+/* Note: no "always visible on touch devices" override — titles/overlay
+   only appear on actual hover/tap-and-hold, per your preference. Most
+   mobile browsers do trigger :hover on a tap for links, so tapping a
+   tile will still reveal the title before the tap's own navigation
+   takes effect. */
