@@ -1,0 +1,13 @@
+/*
+Theme Name:   Hoffman + Hamilton
+Theme URI:    https://andersnoren.se
+Description:  A child theme of Hoffman that replaces the blog listing/archive with a Hamilton-style image grid, while keeping Hoffman's single-post layout unchanged. Built on top of two free themes by Anders Norén.
+Author:       You
+Template:     hoffman
+Version:      1.0.0
+Text Domain:  hoffman-hamilton-child
+*/
+
+/* Intentionally empty below this point — visual overrides live in
+   assets/grid.css, which is enqueued separately so it only loads on
+   pages that actually need it (home/archive/search). */

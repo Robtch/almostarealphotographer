@@ -1,0 +1,76 @@
+/* Positions are calculated by grid-layout.js. Before it runs, items
+   just stack in normal document flow as a safe fallback. */
+
+.hhc-home-description {
+	margin: 0 0 1em;
+}
+
+.hhc-grid {
+	position: relative;
+	margin: 2em 0;
+}
+
+.hhc-grid-item {
+	display: block;
+	margin: 0 0 12px;
+	text-decoration: none;
+	overflow: hidden;
+	background: #111;
+}
+
+.hhc-grid.hhc-grid-ready .hhc-grid-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+}
+
+.hhc-grid-item img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.hhc-grid-placeholder {
+	width: 100%;
+	padding-bottom: 100%; /* square fallback tile for posts with no featured image */
+	background: #eee;
+}
+
+/* Hamilton's signature: the title is hidden until you hover/tap,
+   keeping the grid focused on the images themselves. */
+.hhc-grid-title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 16px 14px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.hhc-grid-item:hover .hhc-grid-title,
+.hhc-grid-item:focus .hhc-grid-title {
+	opacity: 1;
+}
+
+/* "Always show post titles" Customizer setting */
+body.hhc-show-titles .hhc-grid-title {
+	opacity: 1;
+}
+
+/* On touch devices there's no hover, so keep titles visible so mobile
+   visitors (which you said is most of your traffic) can still tell
+   posts apart without needing to tap first. */
+@media (hover: none) {
+	.hhc-grid-title {
+		opacity: 1;
+		background: rgba(0, 0, 0, 0.55);
+	}
+}
