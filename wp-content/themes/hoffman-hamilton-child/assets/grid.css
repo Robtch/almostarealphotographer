@@ -12,6 +12,7 @@
 
 .hhc-grid-item {
 	display: block;
+	position: relative;
 	margin: 0 0 12px;
 	text-decoration: none;
 	overflow: hidden;
@@ -39,18 +40,34 @@
 
 /* Hamilton's signature: the title is hidden until you hover/tap,
    keeping the grid focused on the images themselves. */
+/* Hamilton's actual default behavior: the whole image darkens on
+   hover, with the title appearing centered over it — not just a
+   bottom-corner caption. Deliberately no font-family/weight/size
+   overrides here so it inherits Hoffman's own typography rather than
+   Hamilton's. */
+.hhc-grid-item::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0);
+	transition: background-color 0.15s ease;
+	pointer-events: none;
+}
+
+.hhc-grid-item:hover::after,
+.hhc-grid-item:focus::after {
+	background: rgba(0, 0, 0, 0.45);
+}
+
 .hhc-grid-title {
 	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	padding: 16px 14px;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 20px;
 	color: #fff;
-	font-size: 12px;
-	font-weight: 600;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 	opacity: 0;
 	transition: opacity 0.15s ease;
 }
@@ -61,6 +78,10 @@
 }
 
 /* "Always show post titles" Customizer setting */
+body.hhc-show-titles .hhc-grid-item::after {
+	background: rgba(0, 0, 0, 0.45);
+}
+
 body.hhc-show-titles .hhc-grid-title {
 	opacity: 1;
 }
@@ -69,8 +90,11 @@ body.hhc-show-titles .hhc-grid-title {
    visitors (which you said is most of your traffic) can still tell
    posts apart without needing to tap first. */
 @media (hover: none) {
+	.hhc-grid-item::after {
+		background: rgba(0, 0, 0, 0.45);
+	}
+
 	.hhc-grid-title {
 		opacity: 1;
-		background: rgba(0, 0, 0, 0.55);
 	}
 }
