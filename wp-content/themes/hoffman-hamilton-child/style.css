@@ -11,3 +11,13 @@ Text Domain:  hoffman-hamilton-child
 /* Intentionally empty below this point — visual overrides live in
    assets/grid.css, which is enqueued separately so it only loads on
    pages that actually need it (home/archive/search). */
+
+/* Hide the "Menu"/"Close" text labels on mobile, keeping just the
+   hamburger icon (.bars). This needs to live here rather than in
+   grid.css, since the header/menu appears on every page, not just
+   the homepage/archive. */
+@media (max-width: 900px) {
+	.nav-toggle p {
+		display: none;
+	}
+}
