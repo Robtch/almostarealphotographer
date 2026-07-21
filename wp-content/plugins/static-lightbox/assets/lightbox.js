@@ -1,7 +1,17 @@
 /**
- * Minimal lightbox. No dependencies, no backend calls.
- * Automatically bound to any ".lightbox-item" link by the
- * Static Lightbox Gallery plugin's render_block filter.
+ * Minimal static-site lightbox.
+ * No dependencies. No backend calls. No build step.
+ *
+ * Markup it expects:
+ *
+ *   <a class="lightbox-item" href="full-size.jpg" data-gallery="concert-1" data-caption="...">
+ *     <img src="thumb.jpg" alt="Description">
+ *   </a>
+ *
+ * - href = full-size image shown in the lightbox
+ * - data-gallery = optional; group images that share the same value so
+ *   arrow-key / prev-next navigation cycles through just that group.
+ * - data-caption = optional; shown centered below the image.
  */
 (function () {
 	'use strict';
