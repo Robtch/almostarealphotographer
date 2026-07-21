@@ -1,5 +1,3 @@
-/* Minimal lightbox styling. No animation libraries, just a quick fade. */
-
 .lightbox-overlay {
 	position: fixed;
 	inset: 0;
@@ -7,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 	background: rgba(0, 0, 0, 0.9);
-	z-index: 2147483647; /* max safe CSS z-index — guaranteed to beat any other element on the page, regardless of what value the theme's header/sidebar/nav uses */
+	z-index: 2147483647;
 	opacity: 0;
 	transition: opacity 0.15s ease;
 }
