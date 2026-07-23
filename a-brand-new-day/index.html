@@ -55,49 +55,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <style id="concert-info-details-style-inline-css">
-.wp-block-concert-info-details {
-	--concert-info-accent: #c9a366;
-	--concert-info-text: #3f3f3f;
-	--concert-info-border: #eaeaea;
+/* Most of this block's appearance comes directly from McLuhan's own
+   ".meta" CSS (color, spacing between items, link/hover behavior)
+   since render.php reuses that exact class. This file only adds
+   icon sizing/alignment &mdash; the icon color itself is deliberately NOT
+   set here; it uses currentColor so it always matches .meta's actual
+   color, including if that's ever changed via the Customizer. */
 
-	margin-top: 2em;
-	margin-bottom: 2em;
-	border-top: 1px solid var(--concert-info-border);
-	font-family: inherit;
+.wp-block-concert-info-details.meta {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
 }
 
-.concert-info-row {
-	display: flex;
+.concert-info-item {
+	display: inline-flex;
 	align-items: center;
-	gap: 12px;
-	padding: 14px 0;
-	border-bottom: 1px solid var(--concert-info-border);
+	gap: 6px;
 }
 
 .concert-info-icon {
 	flex: 0 0 auto;
-	width: 16px;
-	height: 16px;
-	color: var(--concert-info-accent);
-}
-
-.concert-info-value {
-	font-size: 12px;
-	font-weight: 600;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--concert-info-text);
-}
-
-.concert-info-value a {
-	color: inherit;
-	text-decoration: underline;
-	text-underline-offset: 2px;
-	text-decoration-color: var(--concert-info-accent);
-}
-
-.concert-info-value a:hover {
-	color: var(--concert-info-accent);
+	width: 14px;
+	height: 14px;
 }
 
 /*# sourceURL=https://robtch.github.io/almostarealphotographer/wp-content/plugins/concert-info-block/style.css */
@@ -220,8 +199,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 				
 <form role="search" method="get" class="search-form" action="https://robtch.github.io/almostarealphotographer/">
-	<label class="screen-reader-text" for="search-form-6a618dcfda027">Search for:</label>
-	<input type="search" id="search-form-6a618dcfda027" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
+	<label class="screen-reader-text" for="search-form-6a61e119914f3">Search for:</label>
+	<input type="search" id="search-form-6a61e119914f3" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
 	
 </form>
 
@@ -237,8 +216,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 				
 <form role="search" method="get" class="search-form" action="https://robtch.github.io/almostarealphotographer/">
-	<label class="screen-reader-text" for="search-form-6a618dcfda0e6">Search for:</label>
-	<input type="search" id="search-form-6a618dcfda0e6" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
+	<label class="screen-reader-text" for="search-form-6a61e11991598">Search for:</label>
+	<input type="search" id="search-form-6a61e11991598" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
 	
 </form>
 
@@ -298,19 +277,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </figure>
 
 
-<div class="concert-info-block wp-block-concert-info-details">
-			<div class="concert-info-row concert-info-row--artist">
-			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>			<span class="concert-info-value"><a href="https://robtch.github.io/almostarealphotographer/artist/metallica/">Metallica</a></span>
-		</div>
+<div class="meta concert-info-block wp-block-concert-info-details">
+			<span class="concert-info-item concert-info-artist">
+			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>			<a href="https://robtch.github.io/almostarealphotographer/artist/metallica/">Metallica</a>		</span>
 	
-			<div class="concert-info-row concert-info-row--venue">
-			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>			<span class="concert-info-value"><a href="https://robtch.github.io/almostarealphotographer/venue/copenhell/">Copenhell</a></span>
-		</div>
+			<span class="concert-info-item concert-info-venue">
+			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>			<a href="https://robtch.github.io/almostarealphotographer/venue/copenhell/">Copenhell</a>		</span>
 	
 	
-			<div class="concert-info-row concert-info-row--genre">
-			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>			<span class="concert-info-value"><a href="https://robtch.github.io/almostarealphotographer/genre/heavy-hetfield/">Heavy Hetfield</a>, <a href="https://robtch.github.io/almostarealphotographer/genre/trash-metal/">Trash Metal</a></span>
-		</div>
+			<span class="concert-info-item concert-info-genre">
+			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>			<a href="https://robtch.github.io/almostarealphotographer/genre/heavy-hetfield/">Heavy Hetfield</a>, <a href="https://robtch.github.io/almostarealphotographer/genre/trash-metal/">Trash Metal</a>		</span>
 	</div>
 
 			</div> <!-- .content -->
@@ -337,13 +313,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<h3 class="related-posts-title">Related Posts</h3>
 
 			
-				<a class="related-post post-95 post type-post status-publish format-standard has-post-thumbnail hentry category-festivals artist-arch-enemy artist-at-the-gates artist-avenged-sevenfold artist-deftones artist-exodus artist-ghost artist-helloween artist-ozzy-osbourne artist-w-a-s-p venue-copenhell has-thumbnail" id="post-95" href="https://robtch.github.io/almostarealphotographer/photos-from-hell/">
-					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Ghost-20230617-DSCF7238-1-e1783501488535.jpeg);">
-													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Ghost-20230617-DSCF7238-1-e1783501488535.jpeg">
-											</div>
-					<h2 class="title"><span>Photos From Hell</span></h2>				</a>
-
-				
 				<a class="related-post post-205 post type-post status-publish format-standard has-post-thumbnail hentry category-festivals tag-zz-top artist-billy-gibbons venue-copenhell genre-texas-trio-rock has-thumbnail" id="post-205" href="https://robtch.github.io/almostarealphotographer/billy-gibbons/">
 					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Billy-Gibbons-Copenhell-20230617-DSCF6519-scaled.jpg);">
 													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Billy-Gibbons-Copenhell-20230617-DSCF6519-scaled.jpg">
@@ -351,11 +320,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					<h2 class="title"><span>Billy Gibbons</span></h2>				</a>
 
 				
+				<a class="related-post post-95 post type-post status-publish format-standard has-post-thumbnail hentry category-festivals artist-arch-enemy artist-at-the-gates artist-avenged-sevenfold artist-deftones artist-exodus artist-ghost artist-helloween artist-ozzy-osbourne artist-w-a-s-p venue-copenhell has-thumbnail" id="post-95" href="https://robtch.github.io/almostarealphotographer/photos-from-hell/">
+					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Ghost-20230617-DSCF7238-1-e1783501488535.jpeg);">
+													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Ghost-20230617-DSCF7238-1-e1783501488535.jpeg">
+											</div>
+					<h2 class="title"><span>Photos From Hell</span></h2>				</a>
+
+				
 				<a class="related-post post-13 post type-post status-publish format-standard has-post-thumbnail hentry category-festivals artist-castle-rat venue-copenhell genre-airbrushed-van-rock has-thumbnail" id="post-13" href="https://robtch.github.io/almostarealphotographer/castle-rat/">
 					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Castle-Rat-20250621-DSCF4829.jpeg);">
 													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Castle-Rat-20250621-DSCF4829.jpeg">
 											</div>
 					<h2 class="title"><span>Castle Rat</span></h2>				</a>
+
+				
+				<a class="related-post post-88 post type-post status-publish format-standard has-post-thumbnail hentry category-concerts tag-copenhell genre-insane-meial has-thumbnail" id="post-88" href="https://robtch.github.io/almostarealphotographer/we-are-not-your-kind/">
+					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2025/04/PXL_20240119_182258735-scaled.jpg);">
+													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2025/04/PXL_20240119_182258735-scaled.jpg">
+											</div>
+					<h2 class="title"><span>Slipknot</span></h2>				</a>
 
 				
 		</div><!-- .related-posts -->
