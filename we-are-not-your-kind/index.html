@@ -46,6 +46,63 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=/wp-includes/css/classic-themes.min.css */
 </style>
 
+<style id="concert-info-details-style-inline-css">
+/* Most of this block's appearance comes directly from McLuhan's own
+   ".meta" CSS (color, spacing between items, link/hover behavior)
+   since render.php reuses that exact class. This file only adds
+   icon sizing/alignment and the two overrides requested:
+   - no underline on links (McLuhan's .meta a already has no underline,
+     but .entry-content a adds one globally, so we explicitly cancel it)
+   - stacked layout on mobile instead of the default inline row */
+
+.wp-block-concert-info-details.meta {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+/* Remove underline &mdash; McLuhan's entry-content a rule adds a
+   border-bottom to all links, which overrides .meta a's own
+   no-underline rule when the block sits inside post content. */
+.wp-block-concert-info-details.meta a {
+	border-bottom: none;
+	text-decoration: none;
+}
+
+.wp-block-concert-info-details.meta a:hover {
+	border-bottom: 1px solid rgba( 0, 0, 4, 0.4 );
+}
+
+.concert-info-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.concert-info-icon {
+	flex: 0 0 auto;
+	width: 14px;
+	height: 14px;
+}
+
+/* Stack items vertically on mobile &mdash; each item gets its own line
+   so they don't wrap awkwardly mid-item on narrow screens. */
+@media ( max-width: 600px ) {
+	.wp-block-concert-info-details.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	/* McLuhan's .meta > * + * adds margin-left for inline spacing &mdash;
+	   cancel that since we're now stacking vertically instead. */
+	.wp-block-concert-info-details.meta > * + * {
+		margin-left: 0;
+	}
+}
+
+/*# sourceURL=https://robtch.github.io/almostarealphotographer/wp-content/plugins/concert-info-block/style.css */
+</style>
+
 <style id="global-styles-inline-css">
 :root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #121212;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #333;--wp--preset--color--medium-gray: #555;--wp--preset--color--light-gray: #777;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 16px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 24px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 18px;--wp--preset--font-size--larger: 28px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-color{color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-color{color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-color{color: var(--wp--preset--color--light-gray) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-background-color{background-color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-background-color{background-color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-background-color{background-color: var(--wp--preset--color--light-gray) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-border-color{border-color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-border-color{border-color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-border-color{border-color: var(--wp--preset--color--light-gray) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-normal-font-size{font-size: var(--wp--preset--font-size--normal) !important;}.has-larger-font-size{font-size: var(--wp--preset--font-size--larger) !important;}
 /*# sourceURL=global-styles-inline-css */
@@ -158,8 +215,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 				
 <form role="search" method="get" class="search-form" action="https://robtch.github.io/almostarealphotographer/">
-	<label class="screen-reader-text" for="search-form-6a63bfbb646da">Search for:</label>
-	<input type="search" id="search-form-6a63bfbb646da" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
+	<label class="screen-reader-text" for="search-form-6a63c0e378b85">Search for:</label>
+	<input type="search" id="search-form-6a63c0e378b85" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
 	
 </form>
 
@@ -175,8 +232,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 				
 <form role="search" method="get" class="search-form" action="https://robtch.github.io/almostarealphotographer/">
-	<label class="screen-reader-text" for="search-form-6a63bfbb6476c">Search for:</label>
-	<input type="search" id="search-form-6a63bfbb6476c" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
+	<label class="screen-reader-text" for="search-form-6a63c0e378c2c">Search for:</label>
+	<input type="search" id="search-form-6a63c0e378c2c" class="search-field" placeholder="Enter your search query" value="" name="s" autocomplete="off">
 	
 </form>
 
@@ -184,7 +241,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 		
 		<main class="site-content" id="site-content">
-		<article class="post-88 post type-post status-publish format-standard has-post-thumbnail hentry category-concerts tag-copenhell genre-insane-meial has-thumbnail">
+		<article class="post-88 post type-post status-publish format-standard has-post-thumbnail hentry category-concerts category-festivals tag-copenhell artist-slipknot venue-copenhell genre-insane-meial has-thumbnail">
 
 			
 				<div class="featured-image">
@@ -196,11 +253,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 				<h1 class="entry-title">Slipknot</h1>
 					<div class="meta">
 
-						<time><a href="https://robtch.github.io/almostarealphotographer/we-are-not-your-kind/">2025-04-28</a></time>
+						<time><a href="https://robtch.github.io/almostarealphotographer/we-are-not-your-kind/">2023-06-16</a></time>
 
 						
 							<span>
-								In <a href="https://robtch.github.io/almostarealphotographer/category/concerts/" rel="category tag">Concerts</a>							</span>
+								In <a href="https://robtch.github.io/almostarealphotographer/category/concerts/" rel="category tag">Concerts</a>, <a href="https://robtch.github.io/almostarealphotographer/category/festivals/" rel="category tag">Festivals</a>							</span>
 
 						
 					</div>
@@ -217,6 +274,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <p class="wp-block-paragraph">All photos taken at Copenhell in Copenhagen, Danmark.</p>
 
+
+<div class="meta concert-info-block wp-block-concert-info-details">
+			<span class="concert-info-item concert-info-artist">
+			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>			<a href="https://robtch.github.io/almostarealphotographer/artist/slipknot/">Slipknot</a>		</span>
+				<span class="concert-info-item concert-info-venue">
+			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>			<a href="https://robtch.github.io/almostarealphotographer/venue/copenhell/">Copenhell</a>		</span>
+					<span class="concert-info-item concert-info-genre">
+			<svg class="concert-info-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>			<a href="https://robtch.github.io/almostarealphotographer/genre/insane-meial/">Insane Meial</a>		</span>
+	</div>
+
 			</div> <!-- .content -->
 
 			
@@ -228,10 +295,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 				<div class="post-pagination section-inner">
 
 					<div class="previous-post">
-													<a href="https://robtch.github.io/almostarealphotographer/ghost/" rel="prev"><span>Ghost</span></a>											</div>
+													<a href="https://robtch.github.io/almostarealphotographer/a-brand-new-day/" rel="prev"><span>Metallica</span></a>											</div>
 
 					<div class="next-post">
-													<a href="https://robtch.github.io/almostarealphotographer/photos-from-hell/" rel="next"><span>Photos From Hell</span></a>											</div>
+													<a href="https://robtch.github.io/almostarealphotographer/billy-gibbons/" rel="next"><span>Billy F Gibbons</span></a>											</div>
 
 				</div><!-- .post-pagination -->
 
@@ -246,12 +313,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<h3 class="related-posts-title">Related Posts</h3>
 
 			
-				<a class="related-post post-80 post type-post status-publish format-standard hentry category-concerts missing-thumbnail" id="post-80" href="https://robtch.github.io/almostarealphotographer/ghost/">
-					<div class="bg-image related-post-image">
-											</div>
-					<h2 class="title"><span>Ghost</span></h2>				</a>
-
-				
 				<a class="related-post post-75 post type-post status-publish format-standard hentry category-concerts artist-the-hives venue-liseberg genre-superior-garage-rock missing-thumbnail" id="post-75" href="https://robtch.github.io/almostarealphotographer/you-dont-like-us-you-love-us/">
 					<div class="bg-image related-post-image">
 											</div>
@@ -263,6 +324,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2025/04/PXL_20240119_214902214.MP_-scaled.jpg">
 											</div>
 					<h2 class="title"><span>Band of Horses</span></h2>				</a>
+
+				
+				<a class="related-post post-13 post type-post status-publish format-standard has-post-thumbnail hentry category-festivals artist-castle-rat venue-copenhell genre-airbrushed-van-rock has-thumbnail" id="post-13" href="https://robtch.github.io/almostarealphotographer/castle-rat/">
+					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Castle-Rat-20250621-DSCF4829.jpeg);">
+													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/Castle-Rat-20250621-DSCF4829.jpeg">
+											</div>
+					<h2 class="title"><span>Castle Rat</span></h2>				</a>
+
+				
+				<a class="related-post post-326 post type-post status-publish format-standard has-post-thumbnail hentry category-festivals artist-metallica venue-copenhell genre-heavy-hetfield genre-trash-metal has-thumbnail" id="post-326" href="https://robtch.github.io/almostarealphotographer/a-brand-new-day/">
+					<div class="bg-image related-post-image" style="background-image: url( https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/img_20220729_073939_892-600x600.webp);">
+													<img src="https://robtch.github.io/almostarealphotographer/wp-content/uploads/2026/07/img_20220729_073939_892-600x600.webp">
+											</div>
+					<h2 class="title"><span>Metallica</span></h2>				</a>
 
 				
 		</div><!-- .related-posts -->
